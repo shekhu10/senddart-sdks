@@ -20,6 +20,8 @@ Every package: base URL `https://www.senddart.com/api`, Bearer `mb_…` keys, th
 
 ## Quickstart — send your first email
 
+Use a sender on your verified domain. The examples use `delivered@test.senddart.com`, SendDart’s delivery simulator; replace it with your own real recipient when ready. `example.com` recipients are blocked.
+
 ### Node.js
 
 ```bash
@@ -33,7 +35,7 @@ const mb = new SendDart('mb_xxxxxxxxx');
 
 const { data, error } = await mb.emails.send({
   from: 'Acme <hello@yourdomain.com>',
-  to: ['user@example.com'],
+  to: ['delivered@test.senddart.com'],
   subject: 'Hello from SendDart',
   html: '<p>Your first email 🎉</p>',
 });
@@ -54,7 +56,7 @@ senddart.api_key = "mb_xxxxxxxxx"
 
 email = senddart.Emails.send({
     "from": "Acme <hello@yourdomain.com>",
-    "to": ["user@example.com"],
+    "to": ["delivered@test.senddart.com"],
     "subject": "Hello from SendDart",
     "html": "<p>Your first email 🎉</p>",
 })
@@ -72,7 +74,7 @@ client := senddart.NewClient("mb_xxxxxxxxx")
 
 sent, err := client.Emails.Send(&senddart.SendEmailRequest{
     From:    "Acme <hello@yourdomain.com>",
-    To:      []string{"user@example.com"},
+    To:      []string{"delivered@test.senddart.com"},
     Subject: "Hello from SendDart",
     Html:    "<p>Your first email 🎉</p>",
 })
@@ -91,7 +93,7 @@ SendDart.api_key = "mb_xxxxxxxxx"
 
 sent = SendDart::Emails.send({
   from: "Acme <hello@yourdomain.com>",
-  to: ["user@example.com"],
+  to: ["delivered@test.senddart.com"],
   subject: "Hello from SendDart",
   html: "<p>Your first email 🎉</p>"
 })
@@ -111,7 +113,7 @@ $senddart = SendDart::client('mb_xxxxxxxxx');
 
 $sent = $senddart->emails->send([
     'from' => 'Acme <hello@yourdomain.com>',
-    'to' => ['user@example.com'],
+    'to' => ['delivered@test.senddart.com'],
     'subject' => 'Hello from SendDart',
     'html' => '<p>Your first email 🎉</p>',
 ]);
@@ -133,7 +135,7 @@ SendDart senddart = new SendDart("mb_xxxxxxxxx");
 
 SendEmailRequest request = SendEmailRequest.builder()
         .from("Acme <hello@yourdomain.com>")
-        .to("user@example.com")
+        .to("delivered@test.senddart.com")
         .subject("Hello from SendDart")
         .html("<p>Your first email 🎉</p>")
         .build();
@@ -156,7 +158,7 @@ ISendDart senddart = SendDartClient.Create("mb_xxxxxxxxx");
 var sent = await senddart.EmailSendAsync(new EmailMessage
 {
     From = "Acme <hello@yourdomain.com>",
-    To = "user@example.com",
+    To = "delivered@test.senddart.com",
     Subject = "Hello from SendDart",
     HtmlBody = "<p>Your first email 🎉</p>",
 });
@@ -178,7 +180,7 @@ async fn main() -> Result<()> {
     let senddart = SendDart::new("mb_xxxxxxxxx");
 
     let email = SendEmailOptions::new(
-        "Acme <hello@yourdomain.com>", ["user@example.com"], "Hello from SendDart",
+        "Acme <hello@yourdomain.com>", ["delivered@test.senddart.com"], "Hello from SendDart",
     ).with_html("<p>Your first email 🎉</p>");
 
     let sent = senddart.emails.send(email).await?;
@@ -194,7 +196,7 @@ npm i -g senddart-cli
 export SENDDART_API_KEY=mb_xxxxxxxxx
 
 senddart emails send \
-  --from 'Acme <hello@yourdomain.com>' --to 'user@example.com' \
+  --from 'Acme <hello@yourdomain.com>' --to 'delivered@test.senddart.com' \
   --subject 'Hello from SendDart' --html '<p>Your first email 🎉</p>'
 ```
 
