@@ -1,0 +1,55 @@
+{
+  "name": "senddart",
+  "version": "1.0.0",
+  "description": "Official Node.js SDK for the SendDart email API — send transactional and marketing email from your own verified domain.",
+  "keywords": [
+    "senddart",
+    "email",
+    "api",
+    "transactional",
+    "ses",
+    "broadcast",
+    "audience"
+  ],
+  "license": "MIT",
+  "author": "SendDart",
+  "homepage": "https://www.senddart.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shekhu10/senddart-sdks.git",
+    "directory": "senddart-npm"
+  },
+  "bugs": {
+    "url": "https://github.com/shekhu10/senddart-sdks/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck:test": "tsc -p tsconfig.test.json",
+    "test": "node --import tsx --test \"test/**/*.test.ts\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsx": "^4.22.3",
+    "typescript": "^5.9.3"
+  }
+}

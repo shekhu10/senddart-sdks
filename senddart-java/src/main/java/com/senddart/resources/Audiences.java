@@ -1,0 +1,63 @@
+package com.senddart.resources;
+
+import com.senddart.ListParams;
+import com.senddart.SendDartResponse;
+import com.senddart.http.ApiClient;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/** Audiences — {@code senddart.audiences()}. */
+public final class Audiences extends Resource {
+    public Audiences(ApiClient api) { super(api); }
+
+    /** {@code POST /audiences} */
+    public SendDartResponse create(String name) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("name", name);
+        return api.request("POST", "/audiences", body);
+    }
+
+    /** {@code GET /audiences/:id} */
+    public SendDartResponse get(String id) {
+        return api.request("GET", "/audiences/" + enc(id));
+    }
+
+    /**
+     * List audiences. This route always applies a limit — with no pagination
+     * params you get the first 20. {@code GET /audiences}
+     */
+    public SendDartResponse list() { return list(null); }
+
+    public SendDartResponse list(ListParams params) {
+        return api.request("GET", "/audiences" + paginate(params));
+    }
+
+    /**
+     * Import contacts from a link-shared Google Sheet — header columns become
+     * contact properties; rows land in a fresh segment.
+     * {@code POST /audiences/:id/contacts/import-sheet}
+     */
+    public SendDartResponse importSheet(String audienceId, String url) {
+        return importSheet(audienceId, url, null);
+    }
+
+    public SendDartResponse importSheet(String audienceId, String url, String segmentName) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("url", url);
+        if (segmentName != null) body.put("segment_name", segmentName);
+        return api.request("POST", "/audiences/" + enc(audienceId) + "/contacts/import-sheet", body);
+    }
+
+    /** Rename an audience. {@code PATCH /audiences/:id} */
+    public SendDartResponse update(String id, String name) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("name", name);
+        return api.request("PATCH", "/audiences/" + enc(id), body);
+    }
+
+    /** {@code DELETE /audiences/:id} */
+    public SendDartResponse remove(String id) {
+        return api.request("DELETE", "/audiences/" + enc(id));
+    }
+}

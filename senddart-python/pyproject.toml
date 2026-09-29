@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "senddart"
+version = "1.0.0"
+description = "Official SendDart Python SDK — send transactional and marketing email from your own verified domain."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+authors = [{ name = "SendDart" }]
+keywords = ["senddart", "email", "transactional", "marketing", "smtp"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Communications :: Email",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://www.senddart.com"
+Documentation = "https://www.senddart.com/docs"
+Repository = "https://github.com/shekhu10/senddart-sdks"
+
+[tool.setuptools.packages.find]
+include = ["senddart*"]

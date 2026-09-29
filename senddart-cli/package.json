@@ -1,0 +1,43 @@
+{
+  "name": "senddart-cli",
+  "version": "1.0.0",
+  "description": "Official command-line interface for the SendDart email API.",
+  "keywords": [
+    "senddart",
+    "email",
+    "cli",
+    "api",
+    "transactional"
+  ],
+  "license": "MIT",
+  "author": "SendDart",
+  "homepage": "https://www.senddart.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shekhu10/senddart-sdks.git",
+    "directory": "senddart-cli"
+  },
+  "bugs": {
+    "url": "https://github.com/shekhu10/senddart-sdks/issues"
+  },
+  "bin": {
+    "senddart": "bin/senddart.js"
+  },
+  "main": "src/cli.js",
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "senddart": "^1.0.0"
+  }
+}
