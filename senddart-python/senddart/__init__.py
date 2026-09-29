@@ -42,7 +42,7 @@ from .api_keys import ApiKeys
 from .logs import Logs
 from .polls import Polls
 
-# ---- Module-level configuration (resend-python style) ----
+# ---- Module-level configuration ----
 
 # Your SendDart API key, e.g. senddart.api_key = "mb_xxxxxxxxx"
 api_key: Optional[str] = None

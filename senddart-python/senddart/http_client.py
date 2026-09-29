@@ -90,7 +90,7 @@ def paginate(params):
 
 def _config():
     # Late import: reads the module-level `senddart.api_key` / `base_url`
-    # set by the caller (resend-python style configuration).
+    # set by the caller.
     import senddart
 
     api_key = getattr(senddart, "api_key", None)
